@@ -1,0 +1,969 @@
+:root {
+  --body-color: #e4e9f7;
+  --sidebar-color: #fff;
+  --primary-color: hsl(346, 100%, 74%);
+  --primary-color-light: #f6f5ff;
+  --toggle-color: #dddd;
+  --text-color: #808080;
+  --secondary-color: hsl(346, 85%, 90%);
+  --secondary-text-color: hsl(346, 100%, 74%);
+  --neutral-text-color: #000;
+  --opposite-text-color: #fff;
+  
+
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
+}
+
+body.dark {
+  --body-color: #181914;
+  --sidebar-color: #242526;
+  --primary-color: #3a3b3c;
+  --primary-color-light: #3a3b3c;
+  --toggle-color: #fff;
+  --text-color: #CCC;
+  --secondary-color: #000000;
+  --secondary-text-color: #ccc;
+  --neutral-text-color: #fff;
+  --opposite-text-color: #000;
+}
+
+/* PAGE AND SEARCH */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+  padding-right: 340px;
+}
+
+.pos-search-bar {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  background: var(--sidebar-color);
+  border-radius: 1rem;
+  border: 1.5px solid #222;
+  box-shadow: none;
+  padding: 0.4rem 1.2rem 0.4rem 1rem;
+  width: 25rem;
+  position: relative;
+  height: 2.8rem;
+}
+
+.pos-search-bar input[type="text"] {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.1rem;
+  width: 100%;
+  padding: 0.3rem 0 0.3rem 0;
+  font-weight: 600;
+  color: var(--neutral-text-color);
+}
+
+.pos-search-bar .search-icon {
+  font-size: 1.6rem;
+  color: var(--neutral-text-color);
+  margin-left: auto;
+  cursor: pointer;
+  pointer-events: none; /* Icon is decorative, not clickable */
+}
+
+/* TAB  */
+/* Add to your rental.css */
+.pos-tabs {
+  display: flex;
+  justify-content: center;   /* Center the tabs horizontally */
+  align-items: center;
+  width: 100%;
+  max-width: 32rem;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+}
+
+
+.tab-btn {
+  flex: 1;
+  padding: 0.5rem 0;
+  background: #f5f5f5;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn.active {
+  background: var(--secondary-color);
+  color: var(--secondary-text-color);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: flex !important;
+}
+
+/* CONTENT */
+.pos-products,
+.pos-accessories {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 1rem;
+}
+
+.pos-card {
+  background: var(--sidebar-color);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  width: 180px;
+  max-width: 90vw;
+  padding: 1.5rem 1rem 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.pos-card:hover {
+  box-shadow: 0 4px 24px rgba(44,62,80,0.16);
+}
+
+.pos-img {
+  width: 120px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background:  var(--sidebar-color);;
+}
+
+.pos-info {
+  text-align: center;
+}
+
+.pos-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--text-color);
+}
+
+.pos-price {
+  font-size: 1.2rem;
+  color: var(--secondary-text-color);
+  font-weight: bold;
+}
+
+.pos-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 0rem;
+  flex-wrap: wrap;
+  padding-right: 335px;
+  padding-bottom: 1rem;
+}
+
+.pos-products,
+.pos-accessories {
+  flex: 2 1 350px;
+}
+
+.pos-cart-summary {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  flex: 1 1 260px;
+  background: var(--sidebar-color);
+  border-radius: 0 0 0 16px;
+  width: 320px;
+  box-shadow: -2px 0 12px rgba(44,62,80,0.08);
+  padding: 2rem 1.2rem 1.5rem 1.2rem;
+  max-width: 100%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.cart-scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-text-color);
+}
+
+.cart-items {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.cart-details {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+
+.cart-total {
+  flex-shrink: 0;
+  background: var(--sidebar-color);
+  z-index: 11;
+  padding: 0.7rem 0 0.7rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-color);
+  border-top: 1px solid #eee;
+}
+
+.cart-checkout-btn {
+  flex-shrink: 0;
+  width: 100%;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 0;
+  font-size: 1.1rem;
+  margin-top: .5rem;
+  cursor: pointer;
+  transition: var(--tran-02);
+  z-index: 12;
+}
+
+.cart-checkout-btn:hover {
+  background: var(--secondary-color);
+  color: var(--secondary-text-color);
+}
+
+.cart-item, .cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 0;
+  font-size: 1rem;
+  color: var(--text-color);
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child,
+.cart-row:last-child {
+  border-bottom: none;
+}
+
+.cart-item span:last-child,
+.cart-row span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cart-remove {
+  color: var(--secondary-text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: .5rem;
+  transition: var(--tran-02);
+}
+.cart-remove:hover {
+  color: red;
+}
+
+.cart-qty-badge {
+  display: inline-block;
+  background: transparent;
+  color: var(--secondary-text-color);
+  font-weight: bold;
+  font-size: 1em;
+  margin-left: 0.2em;
+  padding: 0 0.4em;
+  border-radius: 8px;
+  vertical-align: middle;
+}
+
+/* --- Accessory Modal Styles --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.35);
+  justify-content: center;
+  align-items: flex-start; /* Change from center to flex-start */
+  animation: fadeIn 0.2s;
+  padding: 1rem 0; /* Add padding to modal container */
+  padding-top: 2vh; /* Add padding at the top */
+  overflow-y: auto;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.modal-content {
+  background: var(--sidebar-color);
+  margin: 0 auto;
+  padding: 2.2rem 2rem 1.5rem 2rem;
+  border-radius: 18px;
+  width: 370px;
+  max-width: 370px;
+  min-width: 320px;
+  height: 540px;
+  max-height: 540px;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  position: relative;
+  border: 1.5px solid var(--secondary-text-color);
+  animation: popIn 0.2s;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0; /* Remove bottom padding to avoid double space with button */
+}
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.close-modal {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 1.7em;
+  color: var(--secondary-text-color);
+  background: none;
+  border: none;
+  transition: color 0.2s;
+}
+.close-modal:hover {
+  color: #e74c3c;
+}
+#accessory-modal h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  color: var(--secondary-text-color);
+  font-size: 1.25rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+#accessory-form {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin-bottom: 0;
+  padding-bottom: 0; /* Remove extra space under the last accessory */
+}
+#accessory-form label {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 1.08em;
+  margin-bottom: 0;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.18em 0.2em;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+#accessory-form label:hover {
+  background: var(--secondary-color);
+}
+#accessory-form input[type="checkbox"] {
+  accent-color: var(--secondary-text-color);
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.4em;
+}
+#save-accessory-types {
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  background: var(--secondary-text-color);
+  color: var(--opposite-text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 0;
+  font-size: 1.08em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  margin-top: 1.2em;
+  margin-bottom: 0.2em;
+}
+#save-accessory-types:hover {
+  background: var(--secondary-color);
+  color: var(--secondary-text-color);
+
+}
+
+/* --- Error Modal Styles --- */
+#error-modal .modal-content {
+  max-width: 350px;
+  min-width: 220px;
+  padding: 1.2rem 1.2rem 1rem 1.2rem;
+  height: auto;
+  min-height: unset;
+  max-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#error-modal h3 {
+  margin-bottom: 0.7em;
+  font-size: 1.1rem;
+}
+#error-modal #error-modal-message {
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+#error-modal #error-modal-ok {
+  margin-top: 0.2em;
+  background: var(--secondary-text-color) !important;
+  color: var(--opposite-text-color) !important;
+}
+/* --- End Error Modal Styles --- */
+
+/* --- Customer Modal Styles --- */
+#customer-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 0;
+}
+#customer-modal .modal-content,
+.customer-modal-content {
+  margin-top: 0;
+  top: unset;
+  transform: unset;
+  max-height: 96vh;
+  overflow-y: auto;
+  padding-top: 2.5rem;
+  scroll-padding-top: 1.5rem;
+  padding-right: 2.2rem; /* Add extra right padding for scrollbar */
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
+#customer-modal .modal-content {
+  max-width: 700px; /* match wider modal */
+  min-width: 340px;
+  padding: 2.7rem 2.7rem 2rem 2.7rem;
+  background: linear-gradient(135deg, var(--sidebar-color) 80%, var(--secondary-color) 100%);
+  border: 2px solid var(--secondary-text-color);
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18), 0 2px 16px rgba(44,62,80,0.10);
+  border-radius: 22px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  animation: popIn 0.2s;
+  overflow-y: visible;
+  max-height: 90%;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  transform: none;
+}
+#customer-modal h3 {
+  color: var(--secondary-text-color);
+  margin-bottom: 1.2em;
+  text-align: center;
+  font-size: 1.35rem;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+#customer-form label {
+  display: block;
+  font-size: 1.08em;
+  color: var(--text-color);
+  margin-bottom: 0.2em;
+  font-weight: 500;
+}
+#customer-form input[type="text"] {
+  width: 100%;
+  border: 1.5px solid var(--secondary-text-color);
+  border-radius: 8px;
+  padding: 0.35em 0.7em;
+  margin-bottom: 1em;
+  font-size: 1em;
+  background: #f8f8f8;
+  color: var(--neutral-text-color);
+  transition: border 0.2s;
+}
+#customer-form input[type="text"]:focus {
+  border: 2px solid var(--secondary-text-color);
+  outline: none;
+  background: #fff;
+}
+#customer-form input[readonly] {
+  background: #f5f5f5;
+  color: #888;
+  font-weight: 400;
+}
+#customer-form button[type="submit"] {
+  width: 100%;
+  margin-top: 1.2em;
+  background: var(--secondary-text-color);
+  color: var(--opposite-text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 0;
+  font-size: 1.08em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  letter-spacing: 0.5px;
+  transition: 0.2s, color 0.2s;
+}
+#customer-form button[type="submit"]:hover {
+  background: var(--secondary-color);
+  color: var (--secondary-text-color);
+}
+#customer-modal .close-modal.customer-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  z-index: 10;
+  font-size: 2.2em;
+  color: var(--secondary-text-color);
+  background: none;
+  border: none;
+  transition: color 0.2s;
+  cursor: pointer;
+  box-shadow: none;
+  padding: 0;
+}
+#customer-modal .close-modal.customer-close:hover {
+  color: #e74c3c;
+}
+
+@media (max-width: 600px) {
+  #customer-modal .close-modal.customer-close {
+    top: 1vh;
+    right: 2vw;
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 600px) {
+  #customer-modal .modal-content {
+    width: 97vw !important;
+    min-width: unset !important;
+    max-width: 99vw !important;
+    padding: 1.1rem 0.5rem 1.1rem 0.5rem !important;
+  }
+}
+/* --- End Customer Modal Styles --- */
+
+/* --- Two-Column Customer Modal Styles --- */
+.customer-modal-content {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px; /* wider modal */
+  min-width: 340px;
+  width: 100%;
+  background: var(--sidebar-color);
+  border: 2.5px solid var(--secondary-text-color);
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18), 0 2px 16px rgba(44,62,80,0.10);
+  border-radius: 22px;
+  padding: 2.7rem 2.7rem 2rem 2.7rem; /* more padding for a spacious look */
+  position: relative;
+  animation: popIn 0.2s;
+  overflow-y: auto;
+  max-height: 96vh;
+  margin: 0 auto; /* Add margin to ensure content isn't cut at top */
+  position: relative;
+  top: 0; /* Reset top position */
+  transform: none; /* Remove transform */
+  overflow: hidden; /* Ensures children are clipped to border radius */
+  padding-top: 1.2rem;
+  min-height: 600px;
+  max-height: 98vh;
+}
+.customer-modal-scroll {
+  height: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  background: transparent;
+  padding-right: 0.5em;
+  padding-top: 0;
+  border-right: 12px solid transparent; /* Moves scrollbar to the right */
+  padding-left: 2em;
+}
+.customer-modal-scroll::-webkit-scrollbar {
+  width: 14px; /* wider scrollbar area */
+  background: transparent;
+}
+.customer-modal-scroll::-webkit-scrollbar-thumb {
+  background: var(--secondary-text-color);
+  border-radius: 18px;
+  border: 3px solid transparent; /* creates space around the thumb */
+  background-clip: padding-box;
+}
+.customer-modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin-right: 4px; /* visually shifts the thumb right */
+}
+.customer-modal-scroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.customer-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2em 1.2em;
+  width: 100%;
+  margin-top: 0;
+}
+.customer-form-row {
+  display: contents;
+}
+.customer-form-address,
+.customer-form-notes {
+  grid-column: 1 / span 2;
+}
+#customer-form button[type="submit"] {
+  grid-column: 1 / span 2;
+}
+@media (max-width: 600px) {
+  .customer-modal-content {
+    max-width: 99vw;
+    padding: 1.1rem 0.5rem 1.1rem 0.5rem !important;
+  }
+  .customer-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .customer-form-address,
+  .customer-form-notes,
+  #customer-form button[type="submit"] {
+    grid-column: 1;
+  }
+}
+/* --- End Two-Column Customer Modal Styles --- */
+
+/* --- Refined Customer Modal Styles --- */
+.customer-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+}
+.customer-form-row {
+  display: flex;
+  gap: 1.2em;
+  width: 100%;
+}
+.customer-form-row label {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.07em;
+  font-weight: 500;
+  color: var(--text-color);
+}
+.customer-form-address label,
+.customer-form-notes label {
+  width: 100%;
+}
+.customer-form-address,
+.customer-form-notes {
+  width: 100%;
+  display: flex;
+}
+.customer-form-address input,
+.customer-form-notes textarea {
+  width: 100%;
+  min-width: 0;
+  font-size: 1.05em;
+  border-radius: 10px;
+  padding: 0.65em 1em;
+  border: 1.5px solid var(--secondary-text-color);
+  background: #f8f8f8;
+  color: var(--neutral-text-color);
+  margin-bottom: 0.1em;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06);
+  resize: vertical;
+}
+.customer-form-notes textarea {
+  min-height: 2.5em;
+  max-height: 6em;
+}
+.customer-modal-title {
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.2em;
+  letter-spacing: 0.5px;
+  position: relative;
+  color: var(--secondary-text-color);
+  background: var(--sidebar-color);
+  padding: 1rem 0;
+  z-index: 2;
+}
+.customer-modal-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2em;
+  position: relative;
+}
+.customer-modal-title {
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--secondary-text-color);
+  letter-spacing: 0.5px;
+}
+.customer-close {
+  cursor: pointer;
+  font-size: 2em;
+  color: var(--secondary-text-color);
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: color 0.2s;
+  z-index: 2;
+}
+.customer-close:hover {
+  color: #e74c3c;
+}
+@media (max-width: 800px) {
+  .customer-form-row {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+}
+/* --- End Refined Customer Modal Styles --- */
+
+/* --- Enhanced Customer Modal New Fields --- */
+#customer-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.08em;
+  color: var(--text-color);
+  margin-bottom: 0.2em;
+  font-weight: 500;
+}
+#customer-form input[type="date"],
+#customer-form select,
+#customer-form input[type="number"] {
+  width: 100%;
+  border: 1.5px solid var(--secondary-text-color);
+  border-radius: 8px;
+  padding: 0.35em 0.7em;
+  margin-bottom: 1em;
+  font-size: 1em;
+  background: #f8f8f8;
+  color: #888;
+  transition: border 0.2s;
+  font-weight: 400;
+}
+#customer-form input[type="date"]:focus,
+#customer-form select:focus,
+#customer-form input[type="number"]:focus {
+  border: 2px solid var(--secondary-text-color);
+  outline: none;
+  background: #fff;
+}
+#customer-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23808080" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.8em center;
+  background-size: 1.2em;
+  font-weight: 400;
+  color: #888;
+}
+#customer-form input[readonly],
+#customer-form input[readonly]:focus {
+  background: #f5f5f5;
+  color: #888;
+  font-weight: 400;
+  border: 1.5px solid var(--secondary-text-color);
+}
+#customer-form input[type="number"]::-webkit-inner-spin-button,
+#customer-form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#customer-form input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* --- End Enhanced Customer Modal New Fields --- */
+
+/* Irrelevant: This class is not used in the HTML, but is defined here for demonstration purposes. */
+.irrelevant {
+  display: none;
+  color: #999;
+  background: #eee;
+  font-size: 0.9em;
+  padding: 0.5em;
+  border-radius: 6px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .pos-layout {
+    flex-direction: column;
+    padding-right: 0;
+    gap: 1.2rem;
+  }
+  .pos-products, .pos-accessories {
+    justify-content: center;
+    margin-left: 0;
+  }
+  .pos-cart-summary {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+  .customer-modal-content, #customer-modal .modal-content {
+    max-width: 95vw;
+    margin: 1rem auto;
+    padding: 1.5rem 1rem !important;
+  }
+}
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95vw !important;
+    min-width: unset !important;
+    max-width: 98vw !important;
+    padding: 1rem 0.5rem 1rem 0.5rem !important;
+  }
+  #error-modal .modal-content {
+    width: 95vw !important;
+    min-width: unset !important;
+    max-width: 98vw !important;
+    padding: 1rem 0.5rem 1rem 0.5rem !important;
+  }
+  .pos-cart-summary {
+    padding: 1rem 0.3rem 1rem 0.3rem;
+  }
+  .cart-title, .cart-total {
+    font-size: 1em;
+  }
+}
+@media (max-width: 420px) {
+  .modal-content, #error-modal .modal-content {
+    font-size: 0.95em;
+    padding: 0.7rem 0.2rem 0.7rem 0.2rem !important;
+  }
+  .cart-title, .cart-total {
+    font-size: 0.95em;
+  }
+}
+
+#client-region, #client-city {
+  width: 100%;
+  border: 1.5px solid var(--secondary-text-color);
+  border-radius: 8px;
+  padding: 0.55em 2.2em 0.55em 0.9em;
+  margin-bottom: 1em;
+  font-size: 1em;
+  background: #f8f8f8;
+  color: var(--neutral-text-color);
+  transition: border 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23808080" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.8em center;
+  background-size: 1.2em;
+}
+#client-region:focus, #client-city:focus {
+  border: 2px solid var(--secondary-text-color);
+  outline: none;
+  background: #fff;
+}
+
+/* --- Customer Form Header Styles --- */
+.customer-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1.2em;
+  margin-top: 0;
+}
+.customer-form-header h2 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  /* margin-top: 5%; */
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--secondary-text-color);
+}
+.customer-form-header .customer-close {
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  cursor: pointer;
+  color: var(--secondary-text-color);
+  background: none;
+  border: none;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.customer-form-header .customer-close:hover {
+  color: #e74c3c;
+}
+/* --- End Customer Form Header Styles --- */
